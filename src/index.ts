@@ -15,4 +15,8 @@ app.get('/', (req, res) => {
   });
 });
 
+// Task routes
+import taskRoutes from './routes/taskRoutes';
+app.use('/api/v1', taskRoutes);
+
 export default app;

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 // Define the structure of the Task entity
-interface ITask {
+export interface ITask {
   title: string;
   description?: string;
   completed: boolean;
