@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Route for the root endpoint
+// Root endpoint
 app.get('/', (req, res) => {
   res.status(200).json({
     success: true,
