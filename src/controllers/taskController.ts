@@ -4,6 +4,7 @@ import {
   getTaskById,
   updateTaskById,
   deleteTaskById,
+  createTaskInDatabase,
 } from '../services/taskService';
 import ApiError from '../utils/apiError';
 import sendApiResponse from '../utils/apiResponse';
@@ -31,6 +32,20 @@ const fetchTaskById = asyncHandler(async (req, res) => {
     success: true,
     message: 'Task retrieved successfully',
     data: task,
+  });
+});
+
+// Create a new task
+const createTask = asyncHandler(async (req, res) => {
+  const taskData = req.body;
+
+  // Logic to create a new task (e.g., save it to the database)
+  const newTask = await createTaskInDatabase(taskData);
+
+  sendApiResponse(res, 201, {
+    success: true,
+    message: 'Task created successfully',
+    data: newTask,
   });
 });
 
@@ -67,4 +82,4 @@ const removeTaskById = asyncHandler(async (req, res) => {
   });
 });
 
-export { fetchAllTasks, fetchTaskById, updateTask, removeTaskById };
+export { fetchAllTasks, fetchTaskById, createTask, updateTask, removeTaskById };
