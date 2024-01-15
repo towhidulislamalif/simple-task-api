@@ -11,7 +11,13 @@ import sendApiResponse from '../utils/apiResponse';
 
 // Get all tasks
 const fetchAllTasks = asyncHandler(async (req, res) => {
-  const data = await getAllTasks();
+  let query: Record<string, unknown> = {};
+
+  if (req.query.priority) {
+    query.priority = req.query.priority;
+  }
+
+  const data = await getAllTasks(query);
   sendApiResponse(res, 200, {
     success: true,
     message: 'All tasks retrieved successfully',

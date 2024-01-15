@@ -1,7 +1,9 @@
 import { ITask, Task } from '../models/taskModel';
 
-export const getAllTasks = async (): Promise<ITask[]> => {
-  return Task.find();
+export const getAllTasks = async (
+  payload: Partial<ITask>
+): Promise<ITask[]> => {
+  return Task.find(payload);
 };
 
 export const getTaskById = async (taskId: string): Promise<ITask | null> => {

@@ -16,7 +16,7 @@ router.get('/tasks', fetchAllTasks);
 router.get('/tasks/:taskId', fetchTaskById);
 
 // Route to create a new task
-router.post('/tasks/', createTask);
+router.post('/tasks', createTask);
 
 // Route to update a specific task by ID
 router.put('/tasks/:taskId', updateTask);
